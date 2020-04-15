@@ -35,11 +35,15 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="HNb-vL-RNb">
                                                 <rect key="frame" x="24" y="40" width="286" height="38.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Top rated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcl-iZ-YNv">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Top rated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcl-iZ-YNv">
                                                         <rect key="frame" x="0.0" y="0.0" width="230.5" height="38.5"/>
+                                                        <gestureRecognizers/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="Kk3-kb-y0z" appends="YES" id="3Ee-65-dRq"/>
+                                                        </connections>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhQ-az-SBB">
                                                         <rect key="frame" x="230.5" y="0.0" width="55.5" height="38.5"/>
@@ -208,8 +212,29 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="Kk3-kb-y0z">
+                    <connections>
+                        <action selector="someaction:" destination="BYZ-38-t0r" id="QoS-DD-9Pn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+            <point key="canvasLocation" x="478" y="97"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EFp-9q-Z75">
+            <objects>
+                <viewController storyboardIdentifier="popVC" id="sX9-2T-dP3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ws7-yh-mvf">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Wnk-cy-5qd"/>
+                    </view>
+                    <size key="freeformSize" width="240" height="300"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rbl-rM-jG5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1251" y="-140"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OGa-wV-mev">

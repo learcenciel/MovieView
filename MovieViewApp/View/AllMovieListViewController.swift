@@ -6,6 +6,7 @@
 //  Copyright © 2020 Alexander Team. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 class AllMovieListViewController: UIViewController {
@@ -25,8 +26,10 @@ class AllMovieListViewController: UIViewController {
     @IBOutlet weak var topContainerLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var topContainerTrailingConstraint: NSLayoutConstraint!
     
-    
     var images = [UIImage]()
+    
+    var imageMockUrls: [String?] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +38,24 @@ class AllMovieListViewController: UIViewController {
         
         setupCollectionView()
     }
-
+    
+    @IBAction func someaction(_ sender: UITapGestureRecognizer) {
+        print(sender.location(in: sender.view))
+        
+        guard let popVC = storyboard?.instantiateViewController(identifier: "popVC") else { return }
+        
+        popVC.modalPresentationStyle = .popover
+        
+        let popOverVC = popVC.popoverPresentationController
+        
+        popOverVC?.delegate = self
+        popOverVC?.sourceView = sender.view
+        popOverVC?.sourceRect = CGRect(x: sender.location(in: sender.view).x, y: sender.location(in: sender.view).y, width: 0, height: 0)
+        popVC.preferredContentSize = CGSize(width: 250, height: 250)
+        
+        self.present(popVC, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
@@ -82,6 +102,12 @@ class AllMovieListViewController: UIViewController {
     }
 }
 
+extension AllMovieListViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
 extension AllMovieListViewController {
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         print(123)
@@ -103,6 +129,7 @@ extension AllMovieListViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! CustomCell
         
         cell.movieImageView.image = images[indexPath.item]
+        //cell.setup(url: imageMockUrls[indexPath.item]!)
         
         return cell
     }
