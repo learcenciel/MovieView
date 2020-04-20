@@ -9,42 +9,44 @@
 import Foundation
 
 struct MovieListResponse: Decodable {
-    let currentPage: Int
-    let totalResultsCount: Int
-    let totalPages: Int
-    let movieInfo: [Movie]
+    
+    let currentPage: Int?
+    let totalResultsCount: Int?
+    let totalPages: Int?
+    let movies: [Movie]
     
     private enum CodingKeys: String, CodingKey {
         case currentPage = "page"
         case totalResultsCount = "total_results"
         case totalPages = "total_pages"
-        case movieInfo = "results"
+        case movies = "results"
     }
 }
 
 struct Movie: Decodable {
-    let movieId: Int
-    let movieTitle: String
-    let movieReleaseDate: String
-    let moviePopularity: Float
-    let movieVoteCount: Int
-    let movieVoteAverage: Float
-    let movieHasVideo: Bool
-    let moviePosterPath: String
-    let movieBackDropPath: String
-    let moviePlotDescription: String
+    
+    let id: Int
+    let title: String
+    let releaseDate: String
+    let popularity: Float
+    let voteCount: Int
+    let voteAverage: Float
+    let hasVideo: Bool
+    let posterPath: String?
+    let backDropPath: String?
+    let plotDescription: String
     //let movieGenre: [Int]
     
     private enum CodingKeys: String, CodingKey {
-        case movieId = "id"
-        case movieTitle = "title"
-        case movieReleaseDate = "release_date"
-        case moviePopularity = "popularity"
-        case movieVoteCount = "vote_count"
-        case movieVoteAverage = "vote_average"
-        case movieHasVideo = "video"
-        case moviePosterPath = "poster_path"
-        case movieBackDropPath = "backdrop_path"
-        case moviePlotDescription = "overview"
+        case id = "id"
+        case title = "title"
+        case releaseDate = "release_date"
+        case popularity = "popularity"
+        case voteCount = "vote_count"
+        case voteAverage = "vote_average"
+        case hasVideo = "video"
+        case posterPath = "poster_path"
+        case backDropPath = "backdrop_path"
+        case plotDescription = "overview"
     }
 }

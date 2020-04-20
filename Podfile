@@ -8,5 +8,6 @@ target 'MovieViewApp' do
   # Pods for MovieViewApp
   pod 'Kingfisher'
   pod 'Alamofire'
+  pod 'youtube-ios-player-helper'
 
 end

@@ -13,14 +13,28 @@ class MovieAPI {
     static let shared = MovieAPI()
     
     private let httpClient = HTTPClient()
-    
     private init() {}
     
-    func getGenres(completionHandler: @escaping(GenreResponse?, TritonError?) -> ()) {
-        httpClient.getGenres(completionHandler: completionHandler)
+    func fetchMovies(movieType: MovieType, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieListResponse, HTTPErrors>) -> ()) {
+        switch movieType {
+        case .topRated:
+            httpClient.get(url: "https://api.themoviedb.org/3/movie/top_rated", parameters: parameters, completionHandler: completionHandler)
+        case .popular:
+            httpClient.get(url: "https://api.themoviedb.org/3/movie/popular", parameters: parameters, completionHandler: completionHandler)
+        case .upcoming:
+            httpClient.get(url: "https://api.themoviedb.org/3/movie/upcoming", parameters: parameters, completionHandler: completionHandler)
+        }
     }
     
-    func getTopRatedMovies(completionHandler: @escaping(MovieListResponse?, TritonError?) -> ()) {
-        httpClient.getTopRatedMovies(completionHandler: completionHandler)
+    func fetchMovieDetails(movieId: Int, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieDetailInfo, HTTPErrors>) -> ()) {
+        httpClient.get(url: "https://api.themoviedb.org/3/movie/\(movieId)", parameters: parameters, completionHandler: completionHandler)
+    }
+    
+    func fetchMovieCrew(movieId: Int, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieDetailCastCrewInfo, HTTPErrors>) -> ()) {
+        httpClient.get(url: "https://api.themoviedb.org/3/movie/\(movieId)/credits", parameters: parameters, completionHandler: completionHandler)
+    }
+    
+    func fetchMovieTrailer(movieId: Int, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieTrailerInfo, HTTPErrors>) -> ()) {
+        httpClient.get(url: "https://api.themoviedb.org/3/movie/\(movieId)/videos", parameters: parameters, completionHandler: completionHandler)
     }
 }

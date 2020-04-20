@@ -9,64 +9,40 @@
 import Alamofire
 import Foundation
 
-enum TritonError: Error {
+enum HTTPErrors: Error {
     case parsingError
 }
 
 class HTTPClient {
     
-    var request: Request?
-    
     static let apiV3AuthKey = "ade32b46fe48b68efe2461663d304fca"
     
-    func getGenres(completionHandler: @escaping((GenreResponse?, TritonError?) -> ())) {
-        let url = "https://api.themoviedb.org/3/genre/movie/list"
+    static var parameters: [String: Any] = [
+        "api_key": HTTPClient.apiV3AuthKey,
+        "language": "en-US",
+        "region": "US"
+    ]
+    
+    func get<T: Decodable>(url: String, parameters: [String: Any]?, completionHandler: @escaping(Result<T, HTTPErrors>) -> ()) {
         
-        let parameters: Parameters = [
-            "api_key": HTTPClient.apiV3AuthKey,
-            "language": "en-US"
-        ]
-        
-        AF.request(url, method: .get, parameters: parameters).validate().responseData { data in
-            
-            switch data.result {
-            case .success(let responseData):
-                do {
-                    let jsonDecoder = JSONDecoder()
-                    let decodedResponseData = try jsonDecoder.decode(GenreResponse.self, from: responseData)
-                    completionHandler(decodedResponseData, nil)
-                } catch {
-                    completionHandler(nil, .parsingError)
-                }
-            case .failure:
-                completionHandler(nil, .parsingError)
+        if let parameters = parameters {
+            for key in parameters.keys {
+                HTTPClient.parameters[key] = parameters[key]
             }
         }
-    }
-    
-    func getTopRatedMovies(completionHandler: @escaping((MovieListResponse?, TritonError?) -> ())) {
         
-        let url = "https://api.themoviedb.org/3/movie/top_rated"
-        
-        let parameters: Parameters = [
-            "api_key": HTTPClient.apiV3AuthKey,
-            "language": "en-US",
-            "region": "US"
-        ]
-        
-        AF.request(url, method: .get, parameters: parameters).validate().responseData { data in
-            
+        AF.request(url, method: .get, parameters: HTTPClient.parameters).validate().responseData { data in
             switch data.result {
             case .success(let responseData):
                 do {
                     let jsonDecoder = JSONDecoder()
-                    let decodedResponseData = try jsonDecoder.decode(MovieListResponse.self, from: responseData)
-                    completionHandler(decodedResponseData, nil)
+                    let decodedResponseData = try jsonDecoder.decode(T.self, from: responseData)
+                    completionHandler(.success(decodedResponseData))
                 } catch {
-                    completionHandler(nil, .parsingError)
+                    completionHandler(.failure(.parsingError))
                 }
             case .failure:
-                completionHandler(nil, .parsingError)
+                completionHandler(.failure(.parsingError))
             }
         }
     }
