@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class AllMovieListRouter {
     fileprivate weak var allMovieListViewController: AllMovieListViewController?
-    fileprivate weak var movieDetailsViewController: MovieDetailsViewController?
     
     init(allMovieListViewController: AllMovieListViewController) {
         self.allMovieListViewController = allMovieListViewController
     }
     
     func presentDetails(for movie: MovieDetailInfo) {
-        guard let movieDetailsViewController = self.movieDetailsViewController else { return }
+        let movieDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MovieDetailsViewController")
+        
         allMovieListViewController?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
     }
 }

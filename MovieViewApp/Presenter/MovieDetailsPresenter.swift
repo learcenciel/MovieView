@@ -14,9 +14,14 @@ protocol MovieDetailsView: class {
     func displayMovieTrailer(movieTrailer: MovieTrailer)
 }
 
+protocol MovieCastInfoCell: class {
+    func displayMovieCastProfileImages(movieCastProfileImages: MovieCastProfileImagesInfo)
+}
+
 class MovieDetailsPresenter {
     
     private weak var view: MovieDetailsView?
+    private weak var viewCell: MovieCastInfoCell?
     
     private let apiService = MovieAPI.shared
     
@@ -28,6 +33,10 @@ class MovieDetailsPresenter {
         fetchMovieDetails(movieId: movieId)
         fetchMovieCastCrew(movieId: movieId)
         fetchMovieTrailer(movieId: movieId)
+    }
+    
+    func cellSetup(cell: MovieCastInfoCell, personId: Int) {
+        fetchMovieCastProfileImages(cell: cell, personId: personId)
     }
     
     private func fetchMovieDetails(movieId: Int) {
@@ -42,10 +51,21 @@ class MovieDetailsPresenter {
     }
     
     private func fetchMovieCastCrew(movieId: Int) {
-        apiService.fetchMovieCrew(movieId: movieId, parameters: nil) { result in
+        apiService.fetchMovieCastCrew(movieId: movieId, parameters: nil) { result in
             switch result {
             case .success(let movieCastCrewInfo):
                 self.view?.displayMovieCastCrewInfo(movieCastCrewInfo: movieCastCrewInfo)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func fetchMovieCastProfileImages(cell: MovieCastInfoCell, personId: Int) {
+        apiService.fetchCastProfileImages(personId: personId, parameters: nil) { result in
+            switch result {
+            case .success(let castProfileImages):
+                cell.displayMovieCastProfileImages(movieCastProfileImages: castProfileImages)
             case .failure(let error):
                 print(error.localizedDescription)
             }

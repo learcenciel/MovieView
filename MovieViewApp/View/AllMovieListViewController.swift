@@ -109,7 +109,9 @@ extension AllMovieListViewController: UIPopoverPresentationControllerDelegate {
 
 extension AllMovieListViewController {
     @IBAction func searchButtonPressed(_ sender: UIButton) {
-        // TODO: create search list ViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MovieSearchViewController") as! MovieSearchViewController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -134,7 +136,7 @@ extension AllMovieListViewController : UICollectionViewDataSource {
             presenter.fetchNextMovies(movieType: movieType, page: self.page)
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! CustomCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MoviePosterCollectioNViewCell
         cell.setup(movie: self.movies[indexPath.row])
         return cell
     }
@@ -185,20 +187,6 @@ extension AllMovieListViewController : UIScrollViewDelegate, UICollectionViewDel
     }
 }
 
-class CustomCell: UICollectionViewCell {
-    
-    @IBOutlet weak var movieImageView: UIImageView!
-    
-    func setup(movie: Movie) {
-        guard
-            let posterPath = movie.posterPath,
-            let url = URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")
-        else { return }
-        
-        movieImageView.kf.setImage(with: url)
-    }
-}
-
 extension AllMovieListViewController: AllMoviesView {
     func displayMoreMovies(movies: [Movie]) {
         self.movies += movies
@@ -206,7 +194,6 @@ extension AllMovieListViewController: AllMoviesView {
         loading = false
     }
     
-
     func displayMovies(movies: [Movie]) {
         self.movies = movies
         cv.reloadData()
@@ -218,8 +205,7 @@ extension AllMovieListViewController: AllMoviesView {
             guard
                 let posterPath = movie.posterPath,
                 let url = URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")
-            else { return }
-            
+                else { return }
             self.transitionBlurBackgroundsMoveImageView.kf.setImage(with: url)
         }
     }

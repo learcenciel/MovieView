@@ -26,12 +26,20 @@ class MovieAPI {
         }
     }
     
+    func fetchMovies(by title: String, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieListResponse, HTTPErrors>) -> ()) {
+        httpClient.get(url: "https://api.themoviedb.org/3/search/movie", parameters: parameters, completionHandler: completionHandler)
+    }
+    
     func fetchMovieDetails(movieId: Int, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieDetailInfo, HTTPErrors>) -> ()) {
         httpClient.get(url: "https://api.themoviedb.org/3/movie/\(movieId)", parameters: parameters, completionHandler: completionHandler)
     }
     
-    func fetchMovieCrew(movieId: Int, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieDetailCastCrewInfo, HTTPErrors>) -> ()) {
+    func fetchMovieCastCrew(movieId: Int, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieDetailCastCrewInfo, HTTPErrors>) -> ()) {
         httpClient.get(url: "https://api.themoviedb.org/3/movie/\(movieId)/credits", parameters: parameters, completionHandler: completionHandler)
+    }
+    
+    func fetchCastProfileImages(personId: Int, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieCastProfileImagesInfo, HTTPErrors>) -> ()) {
+        httpClient.get(url: "https://api.themoviedb.org/3/person/\(personId)/images", parameters: parameters, completionHandler: completionHandler)
     }
     
     func fetchMovieTrailer(movieId: Int, parameters: [String: Any]?, completionHandler: @escaping(Result<MovieTrailerInfo, HTTPErrors>) -> ()) {
