@@ -18,31 +18,31 @@ protocol MovieSearchedCellView: class {
 }
 
 class MovieSearchPresenter {
-    
+
     private weak var view: MovieSearchView?
     private weak var cellView: MovieSearchedCellView?
-    
+
     private let router: MovieSearchRouter
     private let apiService = MovieAPI.shared
-    
+
     init(view: MovieSearchView,
          router: MovieSearchRouter) {
         self.view = view
         self.router = router
     }
-    
+
     func movieSearched(movieTitle: String) {
         fetchSearchedMovies(titleStartsWith: movieTitle)
     }
-    
+
     func searchedMovieTapped(movieId: Int) {
         router.presentDetails(for: movieId)
     }
-    
+
     func fetchSearchedMovies(titleStartsWith title: String) {
-        
-        let parameters: [String: Any]? = ["query": title]
-        
+
+        let parameters: [String: Any]? = ["page": 1, "query": title]
+
         apiService.fetchMovies(by: title, parameters: parameters) { [weak self] result in
             switch result {
             case .success(let searchedMovieListResponse):
@@ -52,11 +52,11 @@ class MovieSearchPresenter {
             }
         }
     }
-    
+
     func fetchNextSearchedMovies(titleStartsWith title: String, page: Int) {
-        
+
         let parameters: [String: Any]? = ["page": page, "query": title]
-        
+
         apiService.fetchMovies(by: title, parameters: parameters) { [weak self] result in
             switch result {
             case .success(let searchedMovieListResponse):

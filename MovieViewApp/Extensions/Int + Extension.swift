@@ -9,7 +9,7 @@
 import Foundation
 
 extension Int {
-    func durationFormatt() -> String {
+    func durationFormat() -> String {
         let hours = Int(self / 60)
         let minutes: UInt = UInt(self - hours * 60)
         return "\(hours)hr \(minutes)min"

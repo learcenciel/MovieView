@@ -19,26 +19,26 @@ protocol MovieCastInfoCell: class {
 }
 
 class MovieDetailsPresenter {
-    
+
     private weak var view: MovieDetailsView?
     private weak var viewCell: MovieCastInfoCell?
-    
+
     private let apiService = MovieAPI.shared
-    
+
     init(view: MovieDetailsView) {
         self.view = view
     }
-    
+
     func viewDidLoad(movieId: Int) {
         fetchMovieDetails(movieId: movieId)
         fetchMovieCastCrew(movieId: movieId)
         fetchMovieTrailer(movieId: movieId)
     }
-    
+
     func cellSetup(cell: MovieCastInfoCell, personId: Int) {
         fetchMovieCastProfileImages(cell: cell, personId: personId)
     }
-    
+
     private func fetchMovieDetails(movieId: Int) {
         apiService.fetchMovieDetails(movieId: movieId, parameters: nil) { [weak self] result in
             switch result {
@@ -49,7 +49,7 @@ class MovieDetailsPresenter {
             }
         }
     }
-    
+
     private func fetchMovieCastCrew(movieId: Int) {
         apiService.fetchMovieCastCrew(movieId: movieId, parameters: nil) { result in
             switch result {
@@ -60,7 +60,7 @@ class MovieDetailsPresenter {
             }
         }
     }
-    
+
     private func fetchMovieCastProfileImages(cell: MovieCastInfoCell, personId: Int) {
         apiService.fetchCastProfileImages(personId: personId, parameters: nil) { result in
             switch result {
@@ -71,7 +71,7 @@ class MovieDetailsPresenter {
             }
         }
     }
-    
+
     private func fetchMovieTrailer(movieId: Int) {
         apiService.fetchMovieTrailer(movieId: movieId, parameters: nil) {result in
             switch result {

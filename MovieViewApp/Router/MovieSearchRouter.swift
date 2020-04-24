@@ -11,16 +11,18 @@ import UIKit
 
 class MovieSearchRouter {
     fileprivate weak var movieSearchViewController: MovieSearchViewController?
-    
+
     init(movieSearchViewController: MovieSearchViewController) {
         self.movieSearchViewController = movieSearchViewController
     }
-    
+
     func presentDetails(for movieId: Int) {
-        
-        let movieDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MovieDetailsViewController") as! MovieDetailsViewController
+
+        guard
+            let movieDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MovieDetailsViewController") as? MovieDetailsViewController
+        else { return }
         movieDetailsViewController.movieId = movieId
-        
+
         movieSearchViewController?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
     }
 }

@@ -10,8 +10,6 @@ import UIKit
 
 extension UINavigationController {
     open override var prefersStatusBarHidden: Bool {
-        get {
-            return true
-        }
+        return true
     }
 }

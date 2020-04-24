@@ -14,23 +14,24 @@ enum HTTPErrors: Error {
 }
 
 class HTTPClient {
-    
+
     static let apiV3AuthKey = "ade32b46fe48b68efe2461663d304fca"
-    
     static var parameters: [String: Any] = [
         "api_key": HTTPClient.apiV3AuthKey,
         "language": "en-US",
         "region": "US"
     ]
-    
-    func get<T: Decodable>(url: String, parameters: [String: Any]?, completionHandler: @escaping(Result<T, HTTPErrors>) -> ()) {
-        
+
+    func get<T: Decodable>(url: String,
+                           parameters: [String: Any]?,
+                           completionHandler: @escaping(Result<T, HTTPErrors>) -> Void) {
+
         if let parameters = parameters {
             for key in parameters.keys {
                 HTTPClient.parameters[key] = parameters[key]
             }
         }
-        
+
         AF.request(url, method: .get, parameters: HTTPClient.parameters).validate().responseData { data in
             switch data.result {
             case .success(let responseData):
@@ -38,7 +39,8 @@ class HTTPClient {
                     let jsonDecoder = JSONDecoder()
                     let decodedResponseData = try jsonDecoder.decode(T.self, from: responseData)
                     completionHandler(.success(decodedResponseData))
-                } catch {
+                } catch(let err) {
+                    print(err)
                     completionHandler(.failure(.parsingError))
                 }
             case .failure:

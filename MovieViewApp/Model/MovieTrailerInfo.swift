@@ -10,7 +10,7 @@ import Foundation
 
 struct MovieTrailerInfo: Decodable {
     let movieTrailers: [MovieTrailer]
-    
+
     private enum CodingKeys: String, CodingKey {
         case movieTrailers = "results"
     }
@@ -18,7 +18,7 @@ struct MovieTrailerInfo: Decodable {
 
 struct MovieTrailer: Decodable {
     let youtubeVideoId: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case youtubeVideoId = "key"
     }

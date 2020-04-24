@@ -11,14 +11,14 @@ import UIKit
 
 class AllMovieListRouter {
     fileprivate weak var allMovieListViewController: AllMovieListViewController?
-    
+
     init(allMovieListViewController: AllMovieListViewController) {
         self.allMovieListViewController = allMovieListViewController
     }
-    
+
     func presentDetails(for movie: MovieDetailInfo) {
         let movieDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MovieDetailsViewController")
-        
+
         allMovieListViewController?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
     }
 }

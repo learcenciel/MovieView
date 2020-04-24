@@ -24,30 +24,30 @@ protocol MovieCellView: class {
 }
 
 class AllMovieListPresenter {
-    
+
     private weak var view: AllMoviesView?
-    
+
     private let router: AllMovieListRouter
     private let apiService = MovieAPI.shared
-    
+
     init(view: AllMoviesView,
          router: AllMovieListRouter) {
         self.view = view
         self.router = router
     }
-    
+
     func viewDidLoad() {
         fetchMovies(movieType: .topRated)
     }
-    
+
     func movieMenuItemTapped(movieType: MovieType) {
         fetchMovies(movieType: movieType)
     }
-    
+
     func fetchNextMovies(movieType: MovieType, page: Int) {
-        
+
         let parameters: [String: Any]? = ["page": page]
-        
+
         apiService.fetchMovies(movieType: movieType, parameters: parameters) { [weak self] result in
             switch result {
             case .success(let movieListResponse):
@@ -57,9 +57,9 @@ class AllMovieListPresenter {
             }
         }
     }
-    
+
     private func fetchMovies(movieType: MovieType) {
-        
+
         apiService.fetchMovies(movieType: movieType, parameters: nil) { [weak self] result in
             switch result {
             case .success(let movieListResponse):

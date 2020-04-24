@@ -15,11 +15,11 @@ struct MovieDetailInfo: Decodable {
     let movieVoteAverage: Float
     let movieHasVideo: Bool
     let moviePosterPath: String?
-    let movieBackDropPath: String
+    let movieBackDropPath: String?
     let moviePlotDescription: String
     let movieGenre: [MovieGenre]
-    let movieRuntime: Int
-    
+    let movieRuntime: Int?
+
     private enum CodingKeys: String, CodingKey {
         case movieId = "id"
         case movieTitle = "title"
@@ -37,7 +37,7 @@ struct MovieDetailInfo: Decodable {
 struct MovieGenre: Decodable {
     let genreId: Int
     let genreName: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case genreId = "id"
         case genreName = "name"
