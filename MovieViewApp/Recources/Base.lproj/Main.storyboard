@@ -101,7 +101,7 @@
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOZ-zk-DFY">
                                                 <rect key="frame" x="8" y="554.5" width="0.0" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -118,16 +118,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="S6G-e1-Trf">
-                                                <rect key="frame" x="8" y="563.5" width="124.5" height="50"/>
+                                                <rect key="frame" x="8" y="563.5" width="179" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzk-mg-hmw" userLabel="ReleaseDateLabel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzk-mg-hmw" userLabel="ReleaseDateLabel">
+                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZL-wX-app" userLabel="ReleaseDate">
-                                                        <rect key="frame" x="53" y="0.0" width="71.5" height="50"/>
+                                                        <rect key="frame" x="107.5" y="0.0" width="71.5" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -249,63 +249,73 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avengers2" translatesAutoresizingMaskIntoConstraints="NO" id="vGb-RU-yTb">
-                                                    <rect key="frame" x="8" y="14" width="124" height="172"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="vGb-RU-yTb" secondAttribute="height" multiplier="2:3" id="wj0-BN-LY6"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yej-Zx-sbY">
-                                                    <rect key="frame" x="140" y="14" width="260" height="172"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avengers: Endgameasdasdasadsdsz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amc-4Y-8W4">
+                                                    <rect key="frame" x="146" y="14" width="260" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" white="0.99923177080000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKa-rK-uvW">
+                                                    <rect key="frame" x="146" y="46" width="179.5" height="18"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avengers: Endgame" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amc-4Y-8W4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="188.5" height="24"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9v-0E-PQO" userLabel="3hr 17min">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                             <color key="textColor" white="0.99923177080000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKa-rK-uvW">
-                                                            <rect key="frame" x="0.0" y="32" width="179.5" height="18"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9v-0E-PQO" userLabel="3hr 17min">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="90.5" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                                    <color key="textColor" white="0.99923177080000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=": " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-nK-U3V" userLabel="|">
-                                                                    <rect key="frame" x="90.5" y="0.0" width="8.5" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                                    <color key="textColor" white="0.99923177080000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04/26/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9C-tB-9w6">
-                                                                    <rect key="frame" x="99" y="0.0" width="80.5" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" white="0.99923177080000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLC-xm-0mP">
-                                                            <rect key="frame" x="0.0" y="58" width="260" height="114"/>
-                                                            <string key="text">The warrior Thor (Chris Hemsworth) is cast out of the fantastic realm of Asgard by his father Odin (Sir Anthony Hopkins) for his arrogance and sent to Earth to live amongst humans. A war is waged between the frost giants and Thor's (Chris Hemsworth's) homeland. Loki (Tom Hiddleston) fights for his right to the throne.</string>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=": " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-nK-U3V" userLabel="|">
+                                                            <rect key="frame" x="90.5" y="0.0" width="8.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                            <color key="textColor" white="0.99923177080000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04/26/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9C-tB-9w6">
+                                                            <rect key="frame" x="99" y="0.0" width="80.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" white="0.99923177080000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" text="asdasdads" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLC-xm-0mP">
+                                                    <rect key="frame" x="146" y="72" width="65.5" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.99923177080000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-dm-716">
+                                                    <rect key="frame" x="14" y="14" width="124" height="172"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Joker" translatesAutoresizingMaskIntoConstraints="NO" id="vGb-RU-yTb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="124" height="172"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="vGb-RU-yTb" firstAttribute="leading" secondItem="0Em-dm-716" secondAttribute="leading" id="M82-sb-Ta3"/>
+                                                        <constraint firstAttribute="width" secondItem="0Em-dm-716" secondAttribute="height" multiplier="2:3" id="WIU-pL-0Ef"/>
+                                                        <constraint firstAttribute="trailing" secondItem="vGb-RU-yTb" secondAttribute="trailing" id="rPd-XL-azD"/>
+                                                        <constraint firstItem="vGb-RU-yTb" firstAttribute="top" secondItem="0Em-dm-716" secondAttribute="top" id="u0M-ON-ZNc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="vGb-RU-yTb" secondAttribute="bottom" id="wJu-qg-Nog"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="vGb-RU-yTb" firstAttribute="leading" secondItem="sy8-TG-Bk9" secondAttribute="leading" constant="8" id="Avo-7J-qVY"/>
-                                                <constraint firstItem="vGb-RU-yTb" firstAttribute="width" secondItem="sy8-TG-Bk9" secondAttribute="width" multiplier="0.3" id="BuM-r9-PUh"/>
-                                                <constraint firstItem="Yej-Zx-sbY" firstAttribute="top" secondItem="vGb-RU-yTb" secondAttribute="top" id="UaD-u8-NHt"/>
-                                                <constraint firstItem="vGb-RU-yTb" firstAttribute="top" secondItem="sy8-TG-Bk9" secondAttribute="top" constant="14" id="fEB-Ed-1p3"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yej-Zx-sbY" secondAttribute="trailing" constant="14" id="pMM-3q-ch0"/>
-                                                <constraint firstItem="Yej-Zx-sbY" firstAttribute="bottom" secondItem="vGb-RU-yTb" secondAttribute="bottom" id="q7N-hK-Kte"/>
-                                                <constraint firstItem="Yej-Zx-sbY" firstAttribute="leading" secondItem="vGb-RU-yTb" secondAttribute="trailing" constant="8" id="vwU-Fg-W4q"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vGb-RU-yTb" secondAttribute="bottom" constant="14" id="xWE-Hz-JGf"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="uLC-xm-0mP" secondAttribute="bottom" id="1XP-Ug-XPH"/>
+                                                <constraint firstAttribute="bottom" secondItem="0Em-dm-716" secondAttribute="bottom" constant="14" id="6Kx-zi-vqI"/>
+                                                <constraint firstItem="uLC-xm-0mP" firstAttribute="leading" secondItem="Amc-4Y-8W4" secondAttribute="leading" id="6kg-BQ-551"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SKa-rK-uvW" secondAttribute="trailing" constant="8" id="7ql-WQ-30d"/>
+                                                <constraint firstItem="0Em-dm-716" firstAttribute="width" secondItem="sy8-TG-Bk9" secondAttribute="width" multiplier="0.3" id="9pl-6u-lHc"/>
+                                                <constraint firstItem="SKa-rK-uvW" firstAttribute="top" secondItem="Amc-4Y-8W4" secondAttribute="bottom" constant="8" id="B9F-t5-YdP"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Amc-4Y-8W4" secondAttribute="trailing" constant="8" id="Krq-2W-UK4"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uLC-xm-0mP" secondAttribute="trailing" constant="8" id="TMy-g7-t1j"/>
+                                                <constraint firstItem="0Em-dm-716" firstAttribute="top" secondItem="sy8-TG-Bk9" secondAttribute="top" constant="14" id="YAI-sz-4gG"/>
+                                                <constraint firstItem="0Em-dm-716" firstAttribute="leading" secondItem="sy8-TG-Bk9" secondAttribute="leading" constant="14" id="d1c-tU-xsj"/>
+                                                <constraint firstItem="Amc-4Y-8W4" firstAttribute="leading" secondItem="0Em-dm-716" secondAttribute="trailing" constant="8" id="fGw-ca-52F"/>
+                                                <constraint firstItem="Amc-4Y-8W4" firstAttribute="top" secondItem="0Em-dm-716" secondAttribute="top" id="oHf-Ny-oiz"/>
+                                                <constraint firstItem="SKa-rK-uvW" firstAttribute="leading" secondItem="Amc-4Y-8W4" secondAttribute="leading" id="qJ5-9C-PHY"/>
+                                                <constraint firstItem="uLC-xm-0mP" firstAttribute="top" secondItem="Z9v-0E-PQO" secondAttribute="bottom" constant="8" id="qb9-Cb-vk8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -314,6 +324,7 @@
                                             <outlet property="moviePosterImageView" destination="vGb-RU-yTb" id="r2s-aD-HWc"/>
                                             <outlet property="movieReleaseDateLabel" destination="b9C-tB-9w6" id="VGe-D3-NZR"/>
                                             <outlet property="movieTitleLabel" destination="Amc-4Y-8W4" id="pWt-Pj-7YU"/>
+                                            <outlet property="posterContainer" destination="0Em-dm-716" id="TJN-ZV-1YH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -343,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akn-Y1-UCp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="-343.5960591133005"/>
+            <point key="canvasLocation" x="1250.7246376811595" y="-344.19642857142856"/>
         </scene>
         <!--Movie Details View Controller-->
         <scene sceneID="hzh-pd-ldp">
@@ -718,7 +729,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Avengers2" width="1500" height="2192"/>
+        <image name="Joker" width="185" height="273"/>
         <image name="Keanu" width="360" height="570"/>
         <image name="movie1" width="795" height="1178"/>
         <image name="search_icon" width="33.333332061767578" height="33.333332061767578"/>

@@ -92,7 +92,7 @@ class MovieDetailsViewController: UIViewController {
         flowLayout.itemSize = CGSize(width: size, height: size)
         movieCastCollectionViewHeight.constant = CGFloat(size + 10)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationSection()

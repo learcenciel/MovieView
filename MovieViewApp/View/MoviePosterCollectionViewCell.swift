@@ -11,7 +11,16 @@ import UIKit
 class MoviePosterCollectioNViewCell: UICollectionViewCell {
 
     @IBOutlet weak var movieImageView: UIImageView!
-
+    
+    override func layoutSubviews() {
+        layer.shadowOffset = .zero
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 5
+        layer.shadowOpacity = 1
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+    }
+    
     func setup(movie: Movie) {
         guard
             let posterPath = movie.posterPath,

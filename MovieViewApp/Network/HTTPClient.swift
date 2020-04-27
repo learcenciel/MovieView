@@ -39,8 +39,8 @@ class HTTPClient {
                     let jsonDecoder = JSONDecoder()
                     let decodedResponseData = try jsonDecoder.decode(T.self, from: responseData)
                     completionHandler(.success(decodedResponseData))
-                } catch(let err) {
-                    print(err)
+                } catch (let decodeError) {
+                    print(decodeError)
                     completionHandler(.failure(.parsingError))
                 }
             case .failure:

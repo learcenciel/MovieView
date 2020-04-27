@@ -60,7 +60,9 @@ class AllMovieListPresenter {
 
     private func fetchMovies(movieType: MovieType) {
 
-        apiService.fetchMovies(movieType: movieType, parameters: nil) { [weak self] result in
+        let parameters: [String: Any]? = ["page": 1]
+
+        apiService.fetchMovies(movieType: movieType, parameters: parameters) { [weak self] result in
             switch result {
             case .success(let movieListResponse):
                 self?.view?.displayMovies(movies: movieListResponse.movies)
